@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Le Veilleur · répondeur des agences immobilières, soirs et week-ends</title>
+<meta name="description" content="Quand l'agence est fermée, Le Veilleur répond en 2 minutes aux demandes SeLoger, Leboncoin et de votre site, puis vous envoie le récapitulatif à 8 h. Pilote gratuit d'un mois en décembre 2026.">
+<style>
+  :root{
+    --paper:#F5F1EA; --ink:#1C1A17; --muted:#5F584E; --rule:#DCD3C4;
+    --night:#12161D; --night-2:#1B212B; --night-ink:#ECE6DB; --night-muted:#A59D90;
+    --lamp:#A9501C; --lamp-soft:#E9A46A;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    --sans:"Segoe UI","Helvetica Neue",Arial,sans-serif;
+    --mono:"Cascadia Mono",Consolas,"Liberation Mono",monospace;
+  }
+  *{box-sizing:border-box}
+  html{background:var(--paper)}
+  body{margin:0;color:var(--ink);font:17px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+  a{color:var(--lamp)}
+  a:focus-visible,.btn:focus-visible{outline:3px solid var(--lamp-soft);outline-offset:3px}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  header.top{border-bottom:1px solid var(--rule)}
+  header.top .wrap{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding-top:18px;padding-bottom:14px}
+  .mark{font:600 22px/1 var(--serif);letter-spacing:.01em;color:var(--ink);text-decoration:none}
+  .top small{color:var(--muted);font-size:14px}
+  .hero{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:56px;padding:64px 0 72px;align-items:start}
+  .eyebrow{font-size:14px;color:var(--muted);margin:0 0 14px}
+  h1{font:500 clamp(34px,4.4vw,54px)/1.08 var(--serif);margin:0 0 22px;text-wrap:balance;letter-spacing:-.01em}
+  .lede{font-size:19px;color:#2E2A25;max-width:34em;margin:0 0 30px;text-wrap:pretty}
+  .ctas{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+  .btn{display:inline-flex;align-items:center;min-height:48px;padding:0 22px;border-radius:4px;font-weight:600;text-decoration:none;font-size:16px}
+  .btn.primary{background:var(--lamp);color:#FFF8EF}
+  .btn.primary:hover{background:#8F4317}
+  .btn.ghost{border:1px solid var(--ink);color:var(--ink)}
+  .btn.ghost:hover{background:#ECE5D9}
+  .note{font-size:14px;color:var(--muted);margin-top:14px}
+  /* night panel: the product, shown */
+  .night{background:var(--night);color:var(--night-ink);border-radius:6px;padding:22px 22px 18px;font-size:15px;line-height:1.55}
+  .night .tag{font:12px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--night-muted);margin:0 0 16px}
+  .msg{border-top:1px solid #2A313C;padding:14px 0}
+  .msg:first-of-type{border-top:0;padding-top:0}
+  .when{font:13px/1.2 var(--mono);color:var(--lamp-soft);margin:0 0 6px}
+  .who{color:var(--night-muted);font-size:13px;margin:0 0 8px}
+  .msg p{margin:0 0 8px}
+  .msg ol{margin:0 0 8px;padding-left:20px}
+  .reply{background:var(--night-2);border-radius:4px;padding:14px 16px}
+  .fine{color:var(--night-muted);font-size:12.5px}
+  section.band{border-top:1px solid var(--rule);padding:56px 0}
+  h2{font:500 30px/1.2 var(--serif);margin:0 0 28px}
+  .steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0}
+  .step{padding:0 28px 0 0}
+  .step + .step{border-left:1px solid var(--rule);padding-left:28px}
+  .num{font:400 44px/1 var(--serif);color:var(--lamp);margin:0 0 10px}
+  .step h3{font:600 17px/1.35 var(--sans);margin:0 0 6px}
+  .step p{margin:0;color:#3A352F}
+  .two{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:56px}
+  ul.never{margin:0;padding:0;list-style:none}
+  ul.never li{padding:12px 0;border-top:1px solid var(--rule)}
+  ul.never li:first-child{border-top:0;padding-top:0}
+  dl.terms{display:grid;grid-template-columns:max-content 1fr;gap:10px 28px;margin:0}
+  dl.terms dt{font-weight:600}
+  dl.terms dd{margin:0;color:#3A352F}
+  .who-block p{max-width:40em;margin:0 0 14px}
+  footer{border-top:1px solid var(--rule);padding:28px 0 40px;color:var(--muted);font-size:13.5px}
+  footer p{margin:0 0 6px;max-width:60em}
+  @media (max-width:900px){
+    .hero{grid-template-columns:1fr;gap:36px;padding:40px 0 48px}
+    .two{grid-template-columns:1fr;gap:28px}
+    .steps{grid-template-columns:1fr}
+    .step,.step + .step{border-left:0;padding:0 0 22px 0}
+    .step + .step{border-top:1px solid var(--rule);padding-top:22px}
+    header.top small{display:none}
+  }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="#">Le Veilleur</a>
+    <small>Pilote gratuit, décembre 2026 · <a href="#pilote">les conditions</a></small>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="hero">
+    <div>
+      <p class="eyebrow">Pour les agences immobilières indépendantes</p>
+      <h1>Vos demandes du soir et du dimanche ont une réponse en 2&nbsp;minutes.</h1>
+      <p class="lede">Quand l'agence est fermée, Le Veilleur répond à chaque demande arrivée de SeLoger, de Leboncoin ou de votre site. Il reprend les informations publiques de l'annonce, pose trois questions et propose vos créneaux de visite. À 8&nbsp;h, le récapitulatif vous attend dans votre boîte mail.</p>
+      <div class="ctas">
+        <a class="btn primary" href="mailto:firas1dahmani@gmail.com?subject=Pilote%20Le%20Veilleur&amp;body=Bonjour%20Firas%2C%0A%0ANous%20sommes%20int%C3%A9ress%C3%A9s%20par%20le%20pilote.%0A%0AAgence%20%3A%20%0AVille%20%3A%20%0AT%C3%A9l%C3%A9phone%20%3A%20%0A">Demander un pilote gratuit</a>
+        <a class="btn ghost" href="https://wa.me/21627177090?text=Bonjour%20Firas%2C%20le%20pilote%20Le%20Veilleur%20m%27int%C3%A9resse.">Écrire sur WhatsApp</a>
+      </div>
+      <p class="note">5 agences, 1 mois, sans carte bancaire et sans engagement.</p>
+    </div>
+
+    <aside class="night" aria-label="Exemple d'échange">
+      <p class="tag">Exemple fictif</p>
+      <div class="msg">
+        <p class="when">Dimanche 21:42</p>
+        <p class="who">Demande reçue via Leboncoin · Claire M.</p>
+        <p>Bonjour, l'appartement T3 est-il toujours disponible&nbsp;? Nous aimerions le visiter samedi. Merci.</p>
+      </div>
+      <div class="msg">
+        <p class="when">Dimanche 21:44</p>
+        <p class="who">Réponse envoyée par Le Veilleur, au nom de l'agence</p>
+        <div class="reply">
+          <p>Bonjour Claire,</p>
+          <p>Merci pour votre message au sujet du T3 de 68&nbsp;m² à Clairmarais (189&nbsp;000&nbsp;€ honoraires inclus). Il est toujours en vente.</p>
+          <p>Pour préparer la visite, pouvez-vous me dire&nbsp;:</p>
+          <ol>
+            <li>votre budget, et si votre financement est déjà étudié&nbsp;;</li>
+            <li>le délai de votre projet&nbsp;;</li>
+            <li>si vous avez un bien à vendre en parallèle.</li>
+          </ol>
+          <p>Créneaux possibles&nbsp;: samedi 10&nbsp;h, samedi 11&nbsp;h&nbsp;30 ou mardi 18&nbsp;h. L'agence vous confirme dès l'ouverture.</p>
+          <p>Bien cordialement,<br>Julie, Agence Exemple</p>
+          <p class="fine">Message envoyé en dehors des horaires d'ouverture de l'agence.</p>
+        </div>
+      </div>
+      <div class="msg">
+        <p class="when">Lundi 08:00</p>
+        <p class="who">Récapitulatif envoyé à l'agence</p>
+        <p>3 demandes cette nuit, dont 1 avec financement étudié et une visite souhaitée samedi.</p>
+      </div>
+    </aside>
+  </div>
+
+  <section class="band" aria-labelledby="how">
+    <h2 id="how">Comment ça marche</h2>
+    <div class="steps">
+      <div class="step">
+        <p class="num">1</p>
+        <h3>Une règle de transfert, 15 minutes</h3>
+        <p>On configure ensemble, en visio, le transfert des demandes portails depuis votre messagerie (Gmail, Outlook, OVH…). Aucun changement de logiciel.</p>
+      </div>
+      <div class="step">
+        <p class="num">2</p>
+        <h3>Il répond seulement quand vous êtes fermés</h3>
+        <p>Soirs, week-ends, jours fériés. Pendant vos horaires d'ouverture, il ne fait rien&nbsp;: vous répondez comme d'habitude.</p>
+      </div>
+      <div class="step">
+        <p class="num">3</p>
+        <h3>À 8&nbsp;h, vous reprenez la main</h3>
+        <p>Chaque demande, la réponse déjà envoyée et ce que l'acquéreur a répondu, classées pour savoir qui rappeler en premier.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="never">
+    <div class="two">
+      <h2 id="never">Ce que Le Veilleur ne fait jamais</h2>
+      <ul class="never">
+        <li>Négocier un prix, accepter une offre ou s'engager pour l'agence&nbsp;: cela reste le travail de votre équipe, titulaire de la carte professionnelle.</li>
+        <li>Inventer une information&nbsp;: il ne reprend que ce qui figure dans votre annonce publique.</li>
+        <li>Envoyer un texte que vous n'avez pas validé&nbsp;: le modèle de réponse est relu avec vous avant le démarrage.</li>
+        <li>Garder les demandes après le pilote&nbsp;: elles sont supprimées 30 jours après la fin, ou plus tôt sur simple demande.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="band" id="pilote" aria-labelledby="pilot">
+    <div class="two">
+      <h2 id="pilot">Le pilote</h2>
+      <dl class="terms">
+        <dt>Pour qui</dt><dd>5 agences immobilières indépendantes, transaction ou location.</dd>
+        <dt>Quand</dt><dd>Un mois en décembre 2026, démarrage dès que le modèle de réponse est validé.</dd>
+        <dt>Prix</dt><dd>Gratuit pendant le pilote, sans carte bancaire.</dd>
+        <dt>Ensuite</dt><dd>49&nbsp;€ HT par mois prévus, sans engagement. Ou vous arrêtez, sans frais.</dd>
+        <dt>Pour démarrer</dt><dd><a href="mailto:firas1dahmani@gmail.com?subject=Pilote%20Le%20Veilleur">firas1dahmani@gmail.com</a> ou <a href="https://wa.me/21627177090">WhatsApp +216&nbsp;27&nbsp;177&nbsp;090</a></dd>
+      </dl>
+    </div>
+  </section>
+
+  <section class="band who-block" aria-labelledby="whois">
+    <h2 id="whois">Qui est derrière</h2>
+    <p>Je m'appelle Firas Dahmani. Je suis ingénieur logiciel à Sousse, en Tunisie, et je développe depuis 2023 des applications web qui utilisent l'IA en production.</p>
+    <p>Le Veilleur est mon propre projet. Pendant le pilote, vous parlez directement avec moi, en français.</p>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><strong>Mentions légales.</strong> Éditeur&nbsp;: Firas Dahmani (particulier), Sousse, Tunisie, firas1dahmani@gmail.com. Hébergeur&nbsp;: GitHub Pages, GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis.</p>
+    <p>Ce site ne dépose aucun cookie et ne mesure pas l'audience. L'exemple d'échange est fictif.</p>
+  </div>
+</footer>
+</body>
+</html>
